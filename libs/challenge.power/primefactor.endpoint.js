@@ -1,3 +1,5 @@
+var prime = require("./primefactors");
+
 var primeFactors = function(request, response) {
 	var returnObject = {};
 	var number = request.query.number;
@@ -5,12 +7,8 @@ var primeFactors = function(request, response) {
 	if (isNaN(number)) {
 		returnObject.error = "not a number";
 	} else {
-		var limit = log2(number);
-		var decomposition = [];
-		for (var i = 0; i<limit; i++) {
-			decomposition.push(2);
-		}
-		returnObject.decomposition = decomposition;
+		var limit = prime(number);
+		returnObject.decomposition = limit.split("*").map(function (el) {return parseInt(el)});
 	}
 	response.send(returnObject);
 }
