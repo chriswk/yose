@@ -4,7 +4,7 @@ var primeFactors = function(request, response) {
 	if (Array.isArray(request.query.number)) {
 		var returnObjects = request.query.number.map(singleObject);
 	} else {
-		returnObjects = [singleObject(request.query.number)];
+		returnObjects = singleObject(request.query.number);
 	}
 	response.send(returnObjects);
 }
