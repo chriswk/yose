@@ -5,12 +5,13 @@ var primeFactorsUi = function(req, res) {
 }
 
 function resultString(req) {
-	if (!req.query.number) {
+	var number = req.query.number || req.body.number;
+	if (!number) {
 		return "";
-	} else if (isNaN(req.query.number)) {
-		return req.query.number + " is not a number";
+	} else if (isNaN(number)) {
+		return number + " is not a number";
 	} else {
-		var result = singleObject(req.query.number);
+		var result = singleObject(number);
 		return result.error ? result.error : result.number +" = " +result.decomposition.join(" x ");
 	} 
 }

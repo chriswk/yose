@@ -1,7 +1,13 @@
-var express = require('express');
+var express = require('express'),
+    cons = require('consolidate'),	
+    server = express();;
 
-var server = express();
+server.set('view engine', 'html');
+server.set('views', __dirname + '../views');
+server.enable('view cache');
+server.use(express.bodyParser());
 
+server.engine('html', cons.hogan);
 
 server.get('/', function(request, response) {
 	require('./challenge.welcome/welcome.endpoint')(request, response);
@@ -14,6 +20,10 @@ server.get('/primeFactors', function(request, response) {
 });
 
 server.get('/primeFactors/ui', function(request, response) {
+	require('./challenge.power/primefactor.ui.endpoint')(request, response);
+});
+
+server.post('/primeFactors/ui', function(request, response) {
 	require('./challenge.power/primefactor.ui.endpoint')(request, response);
 });
 
