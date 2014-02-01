@@ -8,6 +8,15 @@
 			<input type="number" name="number" id="number" />
 			<button type="submit" id="go">Calculate</button>
 		</form>
+		{{#hasMultiple}}
+		<ol id="result">
+			{{#results}}
+			<li>{{.}}</li>
+			{{/results}}
+		</ol>
+		{{/hasMultiple}}
+		{{^hasMultiple}}
 		<div id="result">{{decomposition}}</div>
+		{{/hasMultiple}}
 	</body>
 </html>
