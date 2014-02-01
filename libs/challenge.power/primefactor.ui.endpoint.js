@@ -7,11 +7,9 @@ var primeFactorsUi = function(req, res) {
 function resultObject(req) {
 	var obj = {};
 	var number = req.query.number || req.body.number;
-	console.log(number);
 	if (!number) {
 		return "";
 	} else if (Array.isArray(number)) {
-		console.log("multiple inputs");
 		obj.hasMultiple = true
 		obj.results = number.map(function (ele) {
 			return singleObject(ele, true)
@@ -19,8 +17,14 @@ function resultObject(req) {
 			return extractString(ele);
 		});
 	} else {
-		obj.hasMultiple = false;
-		obj.decomposition = extractString(singleObject(number, true));
+		obj.results = number.split(",").map(function (ele) {
+			return singleObject(ele, true);
+		}).map(function (ele) {
+			return extractString(ele);
+		});
+		if (obj.results.length > 1) {
+			obj.hasMultiple = true;
+		}
 	}
 	return obj; 
 }
