@@ -6,7 +6,11 @@ var primeFactorsUi = function(req, res) {
 }
 
 function resultString(result) {
-	return result.decomposition ? result.number +" = " +result.decomposition.join(" x ") : "";
+	if (result.number) {
+		return result.error ? result.error : result.number +" = " +result.decomposition.join(" x ");
+	} else {
+		return "";
+	}
 }
 
 
