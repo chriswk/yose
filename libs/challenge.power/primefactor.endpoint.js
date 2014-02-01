@@ -2,9 +2,9 @@ var singleObject = require('./primefactor.decompose');
 
 var primeFactors = function(request, response) {
 	if (Array.isArray(request.query.number)) {
-		var returnObjects = request.query.number.map(singleObject);
+		var returnObjects = request.query.number.map(singleObject, false);
 	} else {
-		returnObjects = singleObject(request.query.number);
+		returnObjects = singleObject(request.query.number, false);
 	}
 	response.send(returnObjects);
 }
