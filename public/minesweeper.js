@@ -1,6 +1,6 @@
-var yose = yose || {},
-    yose.minesweeper = (function ($) {
-	    function init () {
+var yose = yose || {};
+yose.minesweeper = (function ($) {
+	function init() {
 		var d = document.data;
 		$(".minesweeperEl").click(function () {
 			var e = $(this),
@@ -10,9 +10,9 @@ var yose = yose || {},
 			    e.addClass("lost");
 			}
 		});
-	    }
+	}
 	    
-	    return {
+	return {
 		init: init
-	    };
-	})(jQuery);
+	};
+})(jQuery);

@@ -1,6 +1,6 @@
 var express = require('express'),
+	server = express();
 
-    server = express();;
 
 server.use(express.bodyParser());
 
