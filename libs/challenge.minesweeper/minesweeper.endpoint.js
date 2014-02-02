@@ -6,9 +6,9 @@ function buildBoard(rows, cols) {
 	var board = {};
 	board.rows = [];
 	for (var i = 1; i<=rows; i++) {
-	    var row = {columns: [], row: i};
+	    var row = {columns: [], row: i-1};
 		for (var j = 1; j<= cols; j++) {
-		    row.columns.push({col: j, id: "cell-" +i +"x" +j});
+		    row.columns.push({col: j-1, id: "cell-" +i +"x" +j});
 		}
 		board.rows.push(row);
 	}

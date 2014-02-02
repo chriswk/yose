@@ -7,6 +7,9 @@ yose.minesweeper = (function ($) {
 			    row = e.attr("data-row"),
 			    col = e.attr("data-col");
 			    e.addClass(d[row][col]);
+			    if (d[row][col] === "bomb") {
+			    	e.addClass("lost");
+			    }
 			}
 		});
 	}
