@@ -7,11 +7,18 @@
 			{{#rows}}
 				<tr>
 				{{#columns}}
-				<td id="{{id}}"></td>
+				<td data-row="{{row}}" data-col="{{col}}" id="{{id}}"></td>
 				{{/columns}}
 				</tr>
 			{{/rows}}
 			</table>
 		</div>
+		<script type="text/javascript" src="/public/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="/public/minesweeper.js"></script>
+		<script type="text/javascript">
+		  function onLoad() {
+		    yose.minesweeper.init();
+		  }
+		</script>
 	</body>
 </html>
