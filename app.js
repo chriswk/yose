@@ -5,7 +5,7 @@ server.set('view engine', 'html');
 server.set('views', __dirname + '/views');
 server.enable('view cache');
 server.engine('html', cons.hogan);
-
+server.use(express.static(__dirname + "/public"));
 var port = process.env.PORT || 7000
 server.listen(port);
 console.log("Listening on port: " +port);
